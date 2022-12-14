@@ -8,10 +8,11 @@ body {
 }
 
 :root {
-  --color-blue-primary : "#0012BC";
-  --color-white-primary: "#FFFFFF";
-  --color-gray-primary: "#606060";
-  --background-input: "#FFFFFF17";
+  --color-blue-primary : #0012BC;
+  --color-white-primary: #FFFFFF;
+  --color-gray-primary: #606060;
+  --background-input: #FFFFFF17;
+  --background-form: #040641;
 }
 
 a {
