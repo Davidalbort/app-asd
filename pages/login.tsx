@@ -1,16 +1,16 @@
-import React, { useState } from "react"
-import { useAuth } from "../hooks"
+import React, { useContext } from "react"
 import { InputValues } from "../types/global"
 import { useForm } from "react-hook-form"
 import styles from '../styles/login.module.css'
 import { Modal } from "../components"
+import { AuthContext } from "../context/AuthProvider"
 
 const Login = () => {
-	const {auth,validateUser,closeModal,showModal} = useAuth()
+	const auth = useContext(AuthContext)
 	const {register,handleSubmit,formState:{errors}} = useForm<InputValues>()
 	return(
 		<main className={styles.container_Login}>
-			<form onSubmit={handleSubmit((data) => validateUser(data))} className={styles.login}>
+			<form onSubmit={handleSubmit((data) => auth?.validateUser(data))} className={styles.login}>
 				<h1>Login</h1>
 				<fieldset className={styles.field}>
 					<label htmlFor="email">Email</label>
@@ -65,9 +65,9 @@ const Login = () => {
 				<button type="submit">Login</button>
 			</form>
 			{
-				showModal ? 
+				auth?.showModal ? 
 					<Modal 
-						handleClick={closeModal}
+						handleClick={auth?.closeModal}
 					/>
 					: null
 			}
