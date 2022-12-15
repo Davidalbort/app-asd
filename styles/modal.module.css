@@ -1,0 +1,57 @@
+.container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    
+}
+
+.modal{
+    position: relative;
+    top:20%;
+    width: 45rem;
+    height: 20%;
+    background-color: var(--color-blue-primary);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.modal > h3 {
+    color: var(--color-white-primary);
+    font-size: clamp(1rem,2vw,2rem);
+    font-weight: 700;
+    
+}
+
+.modal > button {
+    width: 25rem;
+    background-color: var(--color-white-primary);
+    border: none;
+    padding: 1rem 0;
+    color: var(--color-blue-primary);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 1rem auto;
+}
+
+.modal > button:hover {
+    
+    color: black;
+    
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 768px){
+    .modal{
+        width: 60%;
+    }
+    .modal > button {
+        width: 60%;
+    }
+}
