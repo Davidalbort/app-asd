@@ -1,0 +1,86 @@
+.container_Login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+}
+
+.login {
+    background-color: var(--background-form);
+    width: 60rem;
+    display: flex;
+    flex-direction: column;
+    padding:  2rem;
+}
+
+.login > h1 {
+    color: var(--color-white-primary);
+    margin: auto;
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    margin: 1rem 0;
+    
+}
+
+.field > label {
+    font-size: clamp(1rem,2vw,1.5rem);
+    color: var(--color-white-primary);
+    margin-bottom: 0.5rem;
+}
+
+.field > input {
+    background-color: var(--background-input);
+    border: none;
+    padding: 0.8rem 1.6rem;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--color-white-primary);
+}
+
+.field > input:focus {
+    outline: none;
+}
+
+.field > input::placeholder {
+    font-weight: 700;
+}
+
+.field > span {
+    margin-top: 1rem;
+    font-size: clamp(1rem,2vw,1.5rem);
+    font-weight: 400;
+    color: red;
+}
+
+.login > button {
+    width: 35rem;
+    background-color: var(--color-blue-primary);
+    border: none;
+    padding: 1rem 0;
+    color: var(--color-white-primary);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 1rem auto;
+}
+
+.login > button:hover {
+    background-color: var(--color-white-primary);
+    color: var(--color-blue-primary);
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 768px){
+    .login{
+        width: 100%;
+    }
+    .login > button {
+        width: 60%;
+    }
+}
