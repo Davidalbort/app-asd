@@ -1,4 +1,6 @@
-import { useEffect, useState } from "react"
+import { useRouter } from "next/router"
+import { useContext, useEffect, useState } from "react"
+import { AuthContext } from "../context/AuthProvider"
 import { getTickers } from "../services/getTickers"
 import { Tickers } from "../types/global"
 import { TickersFromApi, TickersFromApiShort } from "../types/services"
@@ -10,10 +12,13 @@ interface StateUseTickers {
 }
 
 export const useTickers = () => {
+	const auth = useContext(AuthContext)
+	const router = useRouter()
 	const [loading,setLoading] = useState<StateUseTickers['loading']>(false)
 	const [error,setError] = useState<StateUseTickers['error']>('')
 	const [tickers,setTickers] = useState<StateUseTickers['tickers']>([])
 	useEffect(() => {
+		if(!auth?.logged) router.push('/login')
 		setLoading(true)
 		getTickers()
 			.then(apiTickers => {
