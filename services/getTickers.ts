@@ -1,11 +1,14 @@
 import { TickersFromApi } from "../types/services"
 
-export const getTickers = ():Promise<TickersFromApi[]> => {
+export const getTickers = async():Promise<TickersFromApi[]> => {
 	const api = "https://api.wazirx.com/sapi/v1/tickers/24hr"
-	return fetch(api,{
+	const response = await fetch(api,{
 		method: "GET",
-	}).then( response => {
-		if(!response.ok) throw new Error("Response is not ok")
-		return response.json()
+		headers: {}
 	})
+	
+	if(!response.ok)throw new Error(response.status)
+	const data = await response.json()
+	return data
+
 }

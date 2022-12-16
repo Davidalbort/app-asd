@@ -19,20 +19,22 @@ export const useTickers = () => {
 	const [tickers,setTickers] = useState<StateUseTickers["tickers"]>([])
 	useEffect(() => {
 		if(!auth?.logged) router.push("/login")
-		setLoading(true)
-		getTickers()
-			.then(apiTickers => {
-				const tickers = mapFromApiToTickers(apiTickers)
-				const newTickers = changeAtToDate(tickers)
-				setTickers(newTickers)
-				setLoading(false)
-			})
-			.catch(error => {
-				setLoading(false)
-				setError(error)
-				console.error(error)
-			})
-	},[])
+		if(!error && !tickers){
+
+			setLoading(true)
+			getTickers()
+				.then(apiTickers => {
+					const tickers = mapFromApiToTickers(apiTickers)
+					const newTickers = changeAtToDate(tickers)
+					setTickers(newTickers)
+					setLoading(false)
+				})
+				.catch(error => {
+					setLoading(false)
+					setError(error)
+				})
+		}
+	},[tickers])
 
 	const mapFromApiToTickers = (apiResponse:TickersFromApi[]):TickersFromApiShort[]=> {
 		return apiResponse.map((tickersFromAPi) => {
@@ -62,7 +64,6 @@ export const useTickers = () => {
 		const newTickers = tickers.map((ticker) => {
 			const date = new Date (ticker.at)
 			const newAt = date.toLocaleDateString()
-			console.log(date)
 			return{...ticker,at:newAt}
 		})
         
@@ -184,6 +185,10 @@ export const useTickers = () => {
 		}
 		return 0
 	}
-	return {loading,error,tickers,sortByAscending,sortByDescending}
+	const resetError = () => {
+		setError("")
+		setTickers([])
+	}
+	return {loading,error,tickers,sortByAscending,sortByDescending,resetError}
 }
 
