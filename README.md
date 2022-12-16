@@ -1,8 +1,40 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# `Introduction`
 
-First, run the development server:
+  * This project was created with next js with typescript, styled with module component formatting, and react-hook-form. hook-form was used for the conditionals of the email and password fields that the challenge required in the form. The styling was created with mobile first in mind. 
+
+
+# `Development process`
+
+* Read and analyze documentation (challenge)
+* Sketch the application interface.
+* Learn to use hooks form.
+* Creating components, and home pages to structure the application with semantic HTML, all taking into account the Atomic Design methodology.
+* Create the getTickers service for endpoint consumption and perform functional tests.
+* We created the logic for each of the components, we created a context for the authentication logic to be global in the app, we also created custom Hook useTickers to separate the logic of the UI, this in order that if you change the technology or framework can easily reuse this logic or is required to migrate to mobile for example with react native.
+* Two modals were created, one for authentication failure and another for endpoint request errors.
+* The styles were used module css, this to make it more friendly to declare the className, all the design was made responsive design and the table was placed an overflow, to have a better aesthetic.
+* Necessary tags were added to have a good SEO performance.
+* A rendering test was made to the start button. This decision is concluded since it is the button that will start our application and rendering test is one of the most important since the purpose is to know if what we create is being displayed in the DOM, although the most valuable tests are the end to end rendering.
+
+
+-Documentation of the whole process.
+
+
+
+Available Scripts
+
+* In the project directory, you can run:
+
+ ## `Getting Started`
+
+* First type on terminal
+
+```bash
+npm i
+```
+
+* Second, run the development server:
 
 ```bash
 npm run dev
@@ -11,24 +43,3 @@ yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
