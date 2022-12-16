@@ -1,4 +1,4 @@
-import { Table, Loading } from "../components"
+import { Table, Loading, ErrorModal } from "../components"
 import { useTickers } from "../hooks/useTickers"
 import styles from "../styles/home.module.css"
 
@@ -9,7 +9,7 @@ const Home = () => {
 	return(
 		<div className={styles.container}>
 			{
-				loading ?
+				(loading && !error) ?
 					<Loading />
 					:
 					<Table 
@@ -18,7 +18,11 @@ const Home = () => {
 						descending={(text) => sortByDescending(text)}
 					/>
 			}
-			
+			{(error && !tickers.length) ? 
+				<ErrorModal />
+				: 
+				null
+			}
 		</div>
 	)
 }

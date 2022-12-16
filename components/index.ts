@@ -4,5 +4,6 @@ export * from "./Table"
 export * from "./Loading"
 export * from "./Header"
 export * from "./Main"
+export * from "./ErrorModal"
 
 
