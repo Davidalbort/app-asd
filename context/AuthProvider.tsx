@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
-import { useRouter } from 'next/router'
-import { InputValues } from '../types/global'
+import React, {useState} from "react"
+import { useRouter } from "next/router"
+import { InputValues } from "../types/global"
 
 const DATA_USER = {
 	email: "grupoASD@gmail.com",
@@ -11,8 +11,8 @@ interface AuthContext {
     validateUser: (input:InputValues) => void
     closeModal: () => void
     logout: () => void
-    logged: StateAuthProvider['auth']
-    showModal: StateAuthProvider['modal']
+    logged: StateAuthProvider["auth"]
+    showModal: StateAuthProvider["modal"]
 }
 
 const AuthContext = React.createContext<AuthContext | null>(null)
@@ -28,12 +28,12 @@ interface StateAuthProvider {
 
 export function AuthProvider ({children}: PropsAuthProvider) {
 	const router= useRouter()
-	const [logged,setLogged]= useState<StateAuthProvider['auth']>(false)
-	const [showModal,setShowModal]= useState<StateAuthProvider['modal']>(false)
+	const [logged,setLogged]= useState<StateAuthProvider["auth"]>(false)
+	const [showModal,setShowModal]= useState<StateAuthProvider["modal"]>(false)
 	const validateUser = (input: InputValues) => {
 		if( input.email === DATA_USER.email && input.password === DATA_USER.password){
 			setLogged(true)
-			router.push('/home')
+			router.push("/home")
 
 		}else{
 			setShowModal(true)

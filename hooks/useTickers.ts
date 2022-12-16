@@ -14,11 +14,11 @@ interface StateUseTickers {
 export const useTickers = () => {
 	const auth = useContext(AuthContext)
 	const router = useRouter()
-	const [loading,setLoading] = useState<StateUseTickers['loading']>(false)
-	const [error,setError] = useState<StateUseTickers['error']>('')
-	const [tickers,setTickers] = useState<StateUseTickers['tickers']>([])
+	const [loading,setLoading] = useState<StateUseTickers["loading"]>(false)
+	const [error,setError] = useState<StateUseTickers["error"]>("")
+	const [tickers,setTickers] = useState<StateUseTickers["tickers"]>([])
 	useEffect(() => {
-		if(!auth?.logged) router.push('/login')
+		if(!auth?.logged) router.push("/login")
 		setLoading(true)
 		getTickers()
 			.then(apiTickers => {
@@ -71,37 +71,37 @@ export const useTickers = () => {
 	const sortByAscending = (text:string):void => {
 		const sortTickers = [...tickers]
 		switch (text){
-		case 'Symbol':{
+		case "Symbol":{
 			sortTickers.sort((a,b) => sortTextAscending(a.symbol,b.symbol))
 			setTickers(sortTickers)
 			break
 		}
-		case 'quoteAsset':{
+		case "quoteAsset":{
 			sortTickers.sort((a,b) => sortTextAscending(a.quoteAsset,b.quoteAsset))
 			setTickers(sortTickers)
 			break
 		}
-		case 'OpenPrice':{
+		case "OpenPrice":{
 			sortTickers.sort((a,b) => sortNumberAscending(Number(a.openPrice),Number(b.openPrice)))
 			setTickers(sortTickers)
 			break
 		}
-		case 'LowPrice':{
+		case "LowPrice":{
 			sortTickers.sort((a,b) => sortNumberAscending(Number(a.lowPrice),Number(b.lowPrice)))
 			setTickers(sortTickers)
 			break
 		}
-		case 'HighPrice':{
+		case "HighPrice":{
 			sortTickers.sort((a,b) => sortNumberAscending(Number(a.highPrice),Number(b.highPrice)))
 			setTickers(sortTickers)
 			break
 		}
-		case 'LastPrice':{
+		case "LastPrice":{
 			sortTickers.sort((a,b) => sortNumberAscending(Number(a.lastPrice),Number(b.lastPrice)))
 			setTickers(sortTickers)
 			break
 		}
-		case 'At':{
+		case "At":{
 			sortTickers.sort((a,b) => sortNumberAscending(Number(a.at),Number(b.at)))
 			setTickers(sortTickers)
 			break
@@ -111,37 +111,37 @@ export const useTickers = () => {
 	const sortByDescending = (text:string) => {
 		const sortTickers = [...tickers]
 		switch(text){
-		case 'Symbol':{
+		case "Symbol":{
 			sortTickers.sort((a,b) => sortTextDescending(a.symbol,b.symbol))
 			setTickers(sortTickers)
 			break
 		}
-		case 'quoteAsset':{
+		case "quoteAsset":{
 			sortTickers.sort((a,b) => sortTextDescending(a.quoteAsset,b.quoteAsset))
 			setTickers(sortTickers)
 			break
 		}
-		case 'OpenPrice':{
+		case "OpenPrice":{
 			sortTickers.sort((a,b) => sortNumberDescending(Number(a.openPrice),Number(b.openPrice)))
 			setTickers(sortTickers)
 			break
 		}
-		case 'LowPrice':{
+		case "LowPrice":{
 			sortTickers.sort((a,b) => sortNumberDescending(Number(a.lowPrice),Number(b.lowPrice)))
 			setTickers(sortTickers)
 			break
 		}
-		case 'HighPrice':{
+		case "HighPrice":{
 			sortTickers.sort((a,b) => sortNumberDescending(Number(a.highPrice),Number(b.highPrice)))
 			setTickers(sortTickers)
 			break
 		}
-		case 'LastPrice':{
+		case "LastPrice":{
 			sortTickers.sort((a,b) => sortNumberDescending(Number(a.lastPrice),Number(b.lastPrice)))
 			setTickers(sortTickers)
 			break
 		}
-		case 'At':{
+		case "At":{
 			sortTickers.sort((a,b) => sortNumberDescending(Number(a.at),Number(b.at)))
 			setTickers(sortTickers)
 			break

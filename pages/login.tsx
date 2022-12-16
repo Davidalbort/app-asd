@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import { InputValues } from "../types/global"
 import { useForm } from "react-hook-form"
-import styles from '../styles/login.module.css'
+import styles from "../styles/login.module.css"
 import { Modal } from "../components"
 import { AuthContext } from "../context/AuthProvider"
 

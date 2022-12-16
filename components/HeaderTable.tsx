@@ -15,7 +15,7 @@ export const HeaderTable = ({title,increment,decrement}: PropsHeaderTable) => {
 				<span>{title}</span>
 				<figure>
 					<Image 
-						src={'/../public/arrow-narrow-up.png'}
+						src={"/../public/arrow-narrow-up.png"}
 						alt="image of arrow down"
 						width={10}
 						height={10}
@@ -25,7 +25,7 @@ export const HeaderTable = ({title,increment,decrement}: PropsHeaderTable) => {
 						style= {{color: "#CCCC"}}
 					/>
 					<Image 
-						src={'/../public/arrow-narrow-down.png'}
+						src={"/../public/arrow-narrow-down.png"}
 						alt="image of arrow down"
 						width={10}
 						height={10}

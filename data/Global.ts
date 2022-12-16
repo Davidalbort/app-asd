@@ -1,23 +1,23 @@
 export const dataHeaderTable = [
 	{
-		title: 'Symbol'
+		title: "Symbol"
 	},
 	{
-		title: 'quoteAsset'
+		title: "quoteAsset"
 	},
 	{
-		title: 'OpenPrice'
+		title: "OpenPrice"
 	},
 	{
-		title: 'LowPrice'
+		title: "LowPrice"
 	},
 	{
-		title: 'HighPrice'
+		title: "HighPrice"
 	},
 	{
-		title: 'LastPrice'
+		title: "LastPrice"
 	},
 	{
-		title: 'At'
+		title: "At"
 	},
 ]

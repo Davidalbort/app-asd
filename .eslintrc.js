@@ -34,6 +34,10 @@ module.exports = {
 			RULES.ERROR,
 			"never"
 		],
+		"quotes":[
+			RULES.ERROR,
+			"double"
+		],
 		"react/react-in-jsx-scope": RULES.OFF
 	}
 }    

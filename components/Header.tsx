@@ -14,8 +14,8 @@ export const Header = () => {
 				href="https://www.grupoasd.com/"
 			>
 				<img 
-					src={'https://www.grupoasd.com/wp-content/uploads/2020/07/logo_170.png'}
-					alt={`It's icon of company Asd`}
+					src={"https://www.grupoasd.com/wp-content/uploads/2020/07/logo_170.png"}
+					alt={"It's icon of company Asd"}
 					width={100}
 					height={30}
                 
@@ -23,9 +23,9 @@ export const Header = () => {
 			</a>
 
 			<Link 
-				href={'/'}
+				href={"/"}
 				onClick={() => auth.logout()}
-                className={styles.link}
+				className={styles.link}
 			>
                 LOGOUT
 			</Link>
@@ -36,8 +36,8 @@ export const Header = () => {
 				href="https://www.grupoasd.com/"
 			>
 				<img 
-					src={'https://www.grupoasd.com/wp-content/uploads/2020/07/logo_170.png'}
-					alt={`It's icon of company Asd`}
+					src={"https://www.grupoasd.com/wp-content/uploads/2020/07/logo_170.png"}
+					alt={"It's icon of company Asd"}
 					width={100}
 					height={30}
                 
@@ -45,14 +45,14 @@ export const Header = () => {
 			</a>
 			<menu className={styles.menu}>
 				<Link
-					href={'/'}
-                    className={styles.link}
+					href={"/"}
+					className={styles.link}
 				>
                     MAIN
 				</Link>
 				<Link
-					href={'/login'}
-                    className={styles.link}
+					href={"/login"}
+					className={styles.link}
 				>
                     LOGIN
 				</Link>
