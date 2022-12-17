@@ -7,7 +7,7 @@ export const getTickers = async():Promise<TickersFromApi[]> => {
 		headers: {}
 	})
 	
-	if(!response.ok)throw new Error(response.status)
+	if(!response.ok)throw new Error("This is a Error")
 	const data = await response.json()
 	return data
 

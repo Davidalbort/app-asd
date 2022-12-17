@@ -1,4 +1,4 @@
-import Link from "next/link"
+
 import { useTickers } from "../hooks/useTickers"
 import styles from "../styles/modalError.module.css"
 
