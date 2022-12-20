@@ -18,9 +18,9 @@ export const useTickers = () => {
 	const [error,setError] = useState<StateUseTickers["error"]>("")
 	const [tickers,setTickers] = useState<StateUseTickers["tickers"]>([])
 	useEffect(() => {
-		if(!auth?.logged) router.push("/login")
-		if(!error && !tickers){
-
+		const localStorageUser = localStorage.getItem("user")
+		
+		if(auth?.logged && localStorageUser){
 			setLoading(true)
 			getTickers()
 				.then(apiTickers => {
@@ -33,8 +33,16 @@ export const useTickers = () => {
 					setLoading(false)
 					setError(error)
 				})
+		}else if(localStorageUser){
+			const user = JSON.parse(localStorageUser)
+			auth?.validateUser(user)
+		}else{
+			router.replace("/login")
 		}
-	},[tickers])
+		
+
+
+	},[auth?.logged])
 
 	const mapFromApiToTickers = (apiResponse:TickersFromApi[]):TickersFromApiShort[]=> {
 		return apiResponse.map((tickersFromAPi) => {
@@ -188,7 +196,9 @@ export const useTickers = () => {
 	const resetError = () => {
 		setError("")
 		setTickers([])
+		router.reload()
 	}
+	
 	return {loading,error,tickers,sortByAscending,sortByDescending,resetError}
 }
 

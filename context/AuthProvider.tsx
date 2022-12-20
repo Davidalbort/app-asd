@@ -1,6 +1,7 @@
 import React, {useState} from "react"
 import { useRouter } from "next/router"
 import { InputValues } from "../types/global"
+import { useTickers } from "../hooks/useTickers"
 
 const DATA_USER = {
 	email: "grupoASD@gmail.com",
@@ -33,6 +34,7 @@ export function AuthProvider ({children}: PropsAuthProvider) {
 	const validateUser = (input: InputValues) => {
 		if( input.email === DATA_USER.email && input.password === DATA_USER.password){
 			setLogged(true)
+			saveUser(input)
 			router.push("/home")
 
 		}else{
@@ -43,7 +45,14 @@ export function AuthProvider ({children}: PropsAuthProvider) {
 		setShowModal(false)
 	}
 	const logout = () => {
-		setLogged(false)
+		localStorage.clear()
+		setTimeout(() => {
+
+			setLogged(false)
+		},100)
+	}
+	const saveUser = (dataUser: InputValues) => {
+		localStorage.setItem("user",JSON.stringify(dataUser))
 	}
 	const auth : AuthContext = {
 		validateUser: validateUser,
